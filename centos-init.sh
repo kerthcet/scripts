@@ -14,6 +14,9 @@ if [ -f ~/.bash_script ]; then
 fi
 EOF
 
+# set rsa
+ssh-keygen -t rsa -b 4096 -C "kerthcet@gmail.com"
+
 # set alias
 cat >>~/.bash_script<<EOF
 # k8s commands alias
@@ -31,12 +34,12 @@ alias kns='kubens'
 alias ktx='kubectx'
 alias kpf='kubectl port-forward'
 alias kdelf='kubectl delete -f'
+alias klf='kubectl logs -f'
+
 # docker
 alias d='docker'
 EOF
 
-# set rsa
-ssh-keygen -t rsa -b 4096 -C "kerthcet@gmail.com"
 
 # install git
 yum install -y git
@@ -58,7 +61,8 @@ echo "================================"
 rm -rf go1.17.1.linux-amd64.tar.gz
 
 # install docker
-curl -fsSL https://get.docker.com -o get-docker.sh
+echo "install docker"
+curl -v -fsSL https://get.docker.com -o get-docker.sh
 sh ./get-docker.sh
 systemctl start docker
 echo "=========docker version========="
@@ -66,12 +70,25 @@ docker version
 echo "================================"
 rm -rf ./get-docker.sh
 
-# # install kubectl
-# curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-# sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
 # install kubectx
 dnf copr enable audron/kubectx
 dnf install kubectx
 
+# install kubectl
+echo "install kubectl"
+ARCH=$(go env GOARCH)
+OS=$(go env GOOS)
+curl -v --retry 5 -sSLo ./kubectl -w "%{http_code}" https://dl.k8s.io/release/v1.18.0/bin/"$OS"/"$ARCH"/kubectl | grep '200'
+chmod +x ./kubectl
+rm -rf /usr/local/bin/kubectl
+mv ./kubectl /usr/local/bin/kubectl
+
+# install kind
+echo "install kind"
+curl -v --retry 5 -sSLo ./kind -w "%{http_code}" "https://kind.sigs.k8s.io/dl/v0.11.1/kind-${OS:-linux}-${ARCH:-amd64}" | grep '200'
+chmod +x ./kind
+rm -rf /usr/local/bin/kind
+mv ./kind /usr/local/bin/kind
+
+source ~/.bash_profile
 echo ">>>>>>>>>>DONE<<<<<<<<<<<<"
