@@ -10,7 +10,7 @@ bootstrapTokens:
   - authentication
 kind: InitConfiguration
 localAPIEndpoint:
-  advertiseAddress: 10.0.0.238  # 指定master节点内网IP
+  advertiseAddress: 10.7.24.21  # 指定master节点内网IP
   bindPort: 6443
 nodeRegistration:
   criSocket: /run/containerd/containerd.sock  # 使用 containerd的Unix socket 地址

@@ -24,3 +24,4 @@ usermod -aG docker kerthcet
 # mkdir .ssh
 # vi .ssh/authorized_keys # 输入public key
 # chmod 600 .ssh/authorized_keys
+

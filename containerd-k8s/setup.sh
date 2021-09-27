@@ -5,21 +5,29 @@ set -o errexit
 # yum install
 yum install -y wget
 
-
 # set hosts
-cat <<EOF > /etc/hosts
-10.0.0.238 master
-10.0.0.237 node1
+if [ -f /etc/hosts.bak ]
+then
+    cp /etc/hosts.bak /etc/hosts
+else
+	cp /etc/hosts /etc/hosts.bak
+fi
+
+cat <<EOF >> /etc/hosts
+10.7.24.21 master
+10.7.24.31 node1
 EOF
 
 
 # disable firewalld
 systemctl stop firewalld
 systemctl disable firewalld
+echo `firewall-cmd --state`
 
 # disable selinux
-cp ./selinux.config /etc/selinux/config
 setenforce 0
+sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+echo `getenforce`
 
 # load br_netfilter
 modprobe br_netfilter
@@ -57,6 +65,8 @@ chronyc sources
 
 # close swap
 swapoff -a
+sed -i '/swap/s/^\(.*\)$/#\1/g' /etc/fstab
+echo `free -m`
 cat >>/etc/sysctl.d/k8s.conf<<EOF
 vm.swappiness=0
 EOF
@@ -64,13 +74,26 @@ sysctl -p /etc/sysctl.d/k8s.conf
 
 
 # install containerd
-rm -rf cri-containerd-cni-1.5.5-linux-amd64.tar.gz
+if [ -f cri-containerd-cni-1.5.5-linux-amd64.tar.gz ]
+then
+    echo "already exists"
+else
+	echo "downloading..."
+	wget https://download.fastgit.org/containerd/containerd/releases/download/v1.5.5/cri-containerd-cni-1.5.5-linux-amd64.tar.gz
+fi
+# rm -rf cri-containerd-cni-1.5.5-linux-amd64.tar.gz
 # wget https://download.fastgit.org/containerd/containerd/releases/download/v1.5.5/cri-containerd-cni-1.5.5-linux-amd64.tar.gz
-wget https://github.com/containerd/containerd/releases/download/v1.5.5/cri-containerd-cni-1.5.5-linux-amd64.tar.gz
+# wget https://github.com/containerd/containerd/releases/download/v1.5.5/cri-containerd-cni-1.5.5-linux-amd64.tar.gz
 tar -C / -xzf cri-containerd-cni-1.5.5-linux-amd64.tar.gz
-rm -rf cri-containerd-cni-1.5.5-linux-amd64.tar.gz
+# rm -rf cri-containerd-cni-1.5.5-linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin
 source ~/.bashrc
+
+
+# # install nerdctl
+# VERSION=0.11.0
+# wget -c https://github.com/containerd/nerdctl/releases/download/v${VERSION}/nerdctl-full-${VERSION}-linux-amd64.tar.gz
+# tar xvf nerdctl-full-${VERSION}-linux-amd64.tar.gz -C /usr/local/
 
 
 # start containerd
