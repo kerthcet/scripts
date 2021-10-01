@@ -1,0 +1,582 @@
+2021-09-28 09:51:38.486672 I | op-flags: failed to set flag "logtostderr". no such flag -logtostderr
+2021-09-28 09:51:38.487429 I | rookcmd: starting Rook v1.7.4 with arguments '/usr/local/bin/rook ceph operator'
+2021-09-28 09:51:38.487461 I | rookcmd: flag values: --csi-cephfs-plugin-template-path=/etc/ceph-csi/cephfs/csi-cephfsplugin.yaml, --csi-cephfs-provisioner-dep-template-path=/etc/ceph-csi/cephfs/csi-cephfsplugin-provisioner-dep.yaml, --csi-rbd-plugin-template-path=/etc/ceph-csi/rbd/csi-rbdplugin.yaml, --csi-rbd-provisioner-dep-template-path=/etc/ceph-csi/rbd/csi-rbdplugin-provisioner-dep.yaml, --enable-machine-disruption-budget=false, --help=false, --kubeconfig=, --log-level=INFO, --operator-image=, --service-account=
+2021-09-28 09:51:38.487468 I | cephcmd: starting Rook-Ceph operator
+2021-09-28 09:51:39.083324 I | cephcmd: base ceph version inside the rook operator image is "ceph version 16.2.6 (ee28fb57e47e9f88813e24bbf4c14496ca299d31) pacific (stable)"
+2021-09-28 09:51:39.096309 I | op-k8sutil: ROOK_CEPH_COMMANDS_TIMEOUT_SECONDS="15" (env var)
+2021-09-28 09:51:39.101212 I | op-k8sutil: ROOK_ENABLE_DISCOVERY_DAEMON="false" (env var)
+2021-09-28 09:51:39.107488 I | operator: looking for secret "rook-ceph-admission-controller"
+2021-09-28 09:51:39.111791 I | operator: secret "rook-ceph-admission-controller" not found. proceeding without the admission controller
+2021-09-28 09:51:39.118516 I | op-k8sutil: ROOK_ENABLE_FLEX_DRIVER="false" (env var)
+2021-09-28 09:51:39.118573 I | operator: watching all namespaces for ceph cluster CRs
+2021-09-28 09:51:39.118738 I | operator: setting up the controller-runtime manager
+2021-09-28 09:51:39.383061 I | ceph-cluster-controller: successfully started
+2021-09-28 09:51:39.383229 I | ceph-cluster-controller: enabling hotplug orchestration
+2021-09-28 09:51:39.383270 I | ceph-crashcollector-controller: successfully started
+2021-09-28 09:51:39.383611 I | ceph-block-pool-controller: successfully started
+2021-09-28 09:51:39.383719 I | ceph-object-store-user-controller: successfully started
+2021-09-28 09:51:39.383794 I | ceph-object-realm-controller: successfully started
+2021-09-28 09:51:39.383901 I | ceph-object-zonegroup-controller: successfully started
+2021-09-28 09:51:39.383989 I | ceph-object-zone-controller: successfully started
+2021-09-28 09:51:39.384269 I | ceph-object-controller: successfully started
+2021-09-28 09:51:39.384385 I | ceph-file-controller: successfully started
+2021-09-28 09:51:39.384480 I | ceph-nfs-controller: successfully started
+2021-09-28 09:51:39.384920 I | ceph-rbd-mirror-controller: successfully started
+2021-09-28 09:51:39.385244 I | ceph-client-controller: successfully started
+2021-09-28 09:51:39.385361 I | ceph-filesystem-mirror-controller: successfully started
+2021-09-28 09:51:39.388438 I | operator: starting the controller-runtime manager
+2021-09-28 09:51:39.668407 I | clusterdisruption-controller: create event from ceph cluster CR
+2021-09-28 09:51:39.769117 I | op-k8sutil: Reporting Event rook-ceph:ceph-objectstore Normal:ReconcileSucceeded:successfully configured CephObjectStore "rook-ceph/ceph-objectstore"
+2021-09-28 09:51:39.779967 I | clusterdisruption-controller: deleted all legacy blocking PDBs for osds
+2021-09-28 09:51:39.788570 I | clusterdisruption-controller: deleted all legacy node drain canary pods
+2021-09-28 09:51:40.003089 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:51:40.068037 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:51:40.068086 I | op-k8sutil: Reporting Event rook-ceph:rook-ceph Warning:ReconcileFailed:CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:51:40.308518 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:51:40.702517 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:51:50.298936 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:51:50.317339 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:51:50.611736 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:51:50.996513 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:00.541652 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:00.557325 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:00.908572 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:01.305389 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:10.786716 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:10.799834 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:11.302903 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:11.808571 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:21.029417 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:21.044446 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:21.710925 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:22.187350 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:31.279654 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:31.291907 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:32.075258 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:32.504261 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:41.521454 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:41.534415 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:42.477143 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:42.876924 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:51.757852 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:51.772496 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:52:52.804951 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:52:53.198248 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:53:01.994325 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:53:02.006341 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:53:03.107865 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:53:03.587132 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:53:12.239447 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:53:12.256339 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:53:13.509764 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:53:13.983321 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:53:22.492141 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:53:22.507048 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:53:23.905048 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:53:24.374953 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:53:32.741688 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:53:32.753769 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:53:34.297246 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:53:34.813141 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:53:42.981254 I | ceph-cluster-controller: CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:53:42.991736 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". CephCluster "rook-ceph/rook-ceph" will not be deleted until all dependents are removed: CephBlockPools: [ceph-blockpool], CephFilesystems: [ceph-filesystem], CephObjectStores: [ceph-objectstore]
+2021-09-28 09:53:44.610379 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:53:45.183295 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:53:46.786180 E | clusterdisruption-controller: cephcluster "rook-ceph/rook-ceph" seems to be deleted, not requeuing until triggered again
+2021-09-28 09:53:46.786265 I | op-k8sutil: Reporting Event : Normal:ReconcileSucceeded:successfully configured  "/"
+2021-09-28 09:53:46.811234 I | ceph-spec: removing finalizer "cephfilesystem.ceph.rook.io" on "ceph-filesystem"
+2021-09-28 09:53:46.811435 I | ceph-spec: removing finalizer "cephobjectstore.ceph.rook.io" on "ceph-objectstore"
+2021-09-28 09:53:46.829903 E | clusterdisruption-controller: cephcluster "rook-ceph/" seems to be deleted, not requeuing until triggered again
+2021-09-28 09:53:46.830230 I | ceph-spec: object "rook-ceph-config" matched on delete, reconciling
+2021-09-28 09:53:46.831492 E | clusterdisruption-controller: cephcluster "rook-ceph/" seems to be deleted, not requeuing until triggered again
+2021-09-28 09:53:46.831575 I | op-k8sutil: Reporting Event : Normal:ReconcileSucceeded:successfully configured  "/"
+2021-09-28 09:53:46.832260 I | ceph-spec: object "rook-ceph-mon-endpoints" matched on delete, reconciling
+2021-09-28 09:53:46.832388 I | ceph-spec: object "rook-config-override" matched on delete, reconciling
+2021-09-28 09:53:46.839659 I | ceph-spec: object "rook-ceph-mon" matched on delete, reconciling
+2021-09-28 09:53:46.839887 I | ceph-spec: object "rook-ceph-mons-keyring" matched on delete, reconciling
+2021-09-28 09:53:46.841899 I | ceph-spec: object "rook-ceph-admin-keyring" matched on delete, reconciling
+2021-09-28 09:53:49.782362 I | ceph-spec: removing finalizer "cephblockpool.ceph.rook.io" on "ceph-blockpool"
+2021-09-28 09:53:49.800496 E | clusterdisruption-controller: cephcluster "rook-ceph/" seems to be deleted, not requeuing until triggered again
+2021-09-28 09:53:54.610861 E | clusterdisruption-controller: cephcluster "rook-ceph/" seems to be deleted, not requeuing until triggered again
+2021-09-28 09:53:55.183873 E | clusterdisruption-controller: cephcluster "rook-ceph/rook-ceph" seems to be deleted, not requeuing until triggered again
+2021-09-28 09:54:39.112025 E | clusterdisruption-controller: cephcluster "rook-ceph/" seems to be deleted, not requeuing until triggered again
+2021-09-28 09:54:39.112093 I | ceph-spec: adding finalizer "cephblockpool.ceph.rook.io" on "ceph-blockpool"
+2021-09-28 09:54:39.137254 E | clusterdisruption-controller: cephcluster "rook-ceph/" seems to be deleted, not requeuing until triggered again
+2021-09-28 09:54:39.139652 I | clusterdisruption-controller: create event from ceph cluster CR
+2021-09-28 09:54:39.139859 I | ceph-spec: adding finalizer "cephcluster.ceph.rook.io" on "rook-ceph"
+2021-09-28 09:54:39.148361 I | ceph-spec: adding finalizer "cephfilesystem.ceph.rook.io" on "ceph-filesystem"
+2021-09-28 09:54:39.150894 I | ceph-cluster-controller: reconciling ceph cluster in namespace "rook-ceph"
+2021-09-28 09:54:39.155108 I | op-k8sutil: ROOK_ENABLE_FLEX_DRIVER="false" (env var)
+2021-09-28 09:54:39.168228 I | ceph-spec: adding finalizer "cephobjectstore.ceph.rook.io" on "ceph-objectstore"
+2021-09-28 09:54:39.191562 W | ceph-file-controller: failed to set filesystem "ceph-filesystem" status to "". failed to update object "rook-ceph/ceph-filesystem" status: Operation cannot be fulfilled on cephfilesystems.ceph.rook.io "ceph-filesystem": the object has been modified; please apply your changes to the latest version and try again
+2021-09-28 09:54:39.267841 I | ceph-csi: successfully created csi config map "rook-ceph-csi-config"
+2021-09-28 09:54:39.285622 I | ceph-cluster-controller: clusterInfo not yet found, must be a new cluster
+2021-09-28 09:54:39.285766 I | op-k8sutil: ROOK_CSI_ENABLE_RBD="true" (env var)
+2021-09-28 09:54:39.288643 I | op-k8sutil: ROOK_CSI_ENABLE_CEPHFS="true" (env var)
+2021-09-28 09:54:39.291677 I | op-k8sutil: ROOK_CSI_ALLOW_UNSUPPORTED_VERSION="false" (default)
+2021-09-28 09:54:39.295604 I | op-k8sutil: ROOK_CSI_ENABLE_GRPC_METRICS="false" (env var)
+2021-09-28 09:54:39.298869 I | op-k8sutil: CSI_ENABLE_HOST_NETWORK="true" (default)
+2021-09-28 09:54:39.392391 I | op-k8sutil: ROOK_CSI_CEPH_IMAGE="quay.io/cephcsi/cephcsi:v3.4.0" (default)
+2021-09-28 09:54:39.582806 I | ceph-cluster-controller: detecting the ceph image version for image quay.io/ceph/ceph:v16.2.6...
+2021-09-28 09:54:39.676587 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:54:40.199392 I | op-k8sutil: ROOK_CSI_REGISTRAR_IMAGE="k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.2.0" (default)
+2021-09-28 09:54:40.204820 I | op-k8sutil: ROOK_CSI_PROVISIONER_IMAGE="k8s.gcr.io/sig-storage/csi-provisioner:v2.2.2" (default)
+2021-09-28 09:54:40.578101 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:54:40.849343 I | op-k8sutil: ROOK_CSI_ATTACHER_IMAGE="k8s.gcr.io/sig-storage/csi-attacher:v3.2.1" (default)
+2021-09-28 09:54:40.922447 I | op-k8sutil: ROOK_CSI_SNAPSHOTTER_IMAGE="k8s.gcr.io/sig-storage/csi-snapshotter:v4.1.1" (default)
+2021-09-28 09:54:41.009831 I | op-k8sutil: ROOK_CSI_KUBELET_DIR_PATH="/var/lib/kubelet" (default)
+2021-09-28 09:54:41.156840 I | op-k8sutil: CSI_VOLUME_REPLICATION_IMAGE="quay.io/csiaddons/volumereplication-operator:v0.1.0" (default)
+2021-09-28 09:54:41.357494 I | op-k8sutil: ROOK_CSI_CEPHFS_POD_LABELS="" (default)
+2021-09-28 09:54:41.556015 I | op-k8sutil: ROOK_CSI_RBD_POD_LABELS="" (default)
+2021-09-28 09:54:41.556069 I | ceph-csi: detecting the ceph csi image version for image "quay.io/cephcsi/cephcsi:v3.4.0"
+2021-09-28 09:54:41.757721 I | op-k8sutil: CSI_PROVISIONER_TOLERATIONS="" (default)
+2021-09-28 09:54:50.009503 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:54:50.978351 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:54:51.396337 I | clusterdisruption-controller: Ceph "rook-ceph" cluster not ready, cannot check Ceph status yet.
+2021-09-28 09:54:51.632084 I | ceph-cluster-controller: detected ceph image version: "16.2.6-0 pacific"
+2021-09-28 09:54:51.632113 I | ceph-cluster-controller: validating ceph version from provided image
+2021-09-28 09:54:51.638282 I | ceph-cluster-controller: cluster "rook-ceph": version "16.2.6-0 pacific" detected for image "quay.io/ceph/ceph:v16.2.6"
+2021-09-28 09:54:51.690087 I | op-mon: start running mons
+2021-09-28 09:54:51.919294 I | op-mon: creating mon secrets for a new cluster
+2021-09-28 09:54:52.019056 I | op-mon: existing maxMonID not found or failed to load. configmaps "rook-ceph-mon-endpoints" not found
+2021-09-28 09:54:52.024250 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":[]}] data: mapping:{"node":{}} maxMonId:-1]
+2021-09-28 09:54:52.214571 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 09:54:52.214907 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 09:54:53.615461 I | ceph-csi: Detected ceph CSI image version: "v3.4.0"
+2021-09-28 09:54:53.812374 I | op-mon: targeting the mon count 3
+2021-09-28 09:54:53.832988 I | op-mon: sched-mon: created canary deployment rook-ceph-mon-a-canary
+2021-09-28 09:54:53.842717 I | op-mon: sched-mon: created canary deployment rook-ceph-mon-b-canary
+2021-09-28 09:54:53.873415 I | op-mon: sched-mon: created canary deployment rook-ceph-mon-c-canary
+2021-09-28 09:54:54.013207 I | op-k8sutil: CSI_FORCE_CEPHFS_KERNEL_CLIENT="true" (env var)
+2021-09-28 09:54:54.812326 I | op-k8sutil: CSI_CEPHFS_GRPC_METRICS_PORT="9091" (default)
+2021-09-28 09:54:55.015040 I | op-mon: sched-mon: canary monitor deployment rook-ceph-mon-a-canary scheduled to node1
+2021-09-28 09:54:55.015089 I | op-mon: assignmon: mon a assigned to node node1
+2021-09-28 09:54:55.214842 I | op-mon: sched-mon: canary monitor deployment rook-ceph-mon-b-canary scheduled to node3
+2021-09-28 09:54:55.214876 I | op-mon: assignmon: mon b assigned to node node3
+2021-09-28 09:54:55.411660 I | op-mon: sched-mon: canary monitor deployment rook-ceph-mon-c-canary scheduled to node2
+2021-09-28 09:54:55.411700 I | op-mon: assignmon: mon c assigned to node node2
+2021-09-28 09:54:55.418386 I | op-mon: cleaning up canary monitor deployment "rook-ceph-mon-a-canary"
+2021-09-28 09:54:55.430018 I | op-mon: cleaning up canary monitor deployment "rook-ceph-mon-b-canary"
+2021-09-28 09:54:55.442846 I | op-mon: cleaning up canary monitor deployment "rook-ceph-mon-c-canary"
+2021-09-28 09:54:55.450412 I | op-mon: creating mon a
+2021-09-28 09:54:55.612741 I | op-k8sutil: CSI_CEPHFS_LIVENESS_METRICS_PORT="9081" (default)
+2021-09-28 09:54:55.821018 I | op-mon: mon "a" endpoint is [v2:10.105.150.196:3300,v1:10.105.150.196:6789]
+2021-09-28 09:54:57.302811 I | op-k8sutil: CSI_RBD_GRPC_METRICS_PORT="9090" (default)
+2021-09-28 09:54:57.308425 I | op-k8sutil: CSI_RBD_LIVENESS_METRICS_PORT="9080" (default)
+2021-09-28 09:54:57.311845 I | op-k8sutil: CSI_PLUGIN_PRIORITY_CLASSNAME="" (env var)
+2021-09-28 09:54:57.317928 I | op-k8sutil: CSI_PROVISIONER_PRIORITY_CLASSNAME="" (env var)
+2021-09-28 09:54:57.318000 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.105.150.196:6789"]}] data:a=10.105.150.196:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:-1]
+2021-09-28 09:54:57.318358 I | op-mon: monitor endpoints changed, updating the bootstrap peer token
+2021-09-28 09:54:57.318604 I | op-mon: monitor endpoints changed, updating the bootstrap peer token
+2021-09-28 09:54:57.411657 I | op-k8sutil: CSI_ENABLE_OMAP_GENERATOR="false" (env var)
+2021-09-28 09:54:57.812534 I | op-k8sutil: CSI_ENABLE_RBD_SNAPSHOTTER="true" (env var)
+2021-09-28 09:54:58.213539 I | op-k8sutil: CSI_ENABLE_CEPHFS_SNAPSHOTTER="true" (env var)
+2021-09-28 09:54:58.412951 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 09:54:58.413273 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 09:54:58.613316 I | op-k8sutil: CSI_ENABLE_VOLUME_REPLICATION="false" (env var)
+2021-09-28 09:54:59.012299 I | op-k8sutil: CSI_CEPHFS_PLUGIN_UPDATE_STRATEGY="RollingUpdate" (default)
+2021-09-28 09:54:59.219797 I | op-mon: 0 of 1 expected mons are ready. creating or updating deployments without checking quorum in attempt to achieve a healthy mon cluster
+2021-09-28 09:54:59.518486 I | op-k8sutil: CSI_RBD_PLUGIN_UPDATE_STRATEGY="RollingUpdate" (default)
+2021-09-28 09:54:59.518517 I | ceph-csi: Kubernetes version is 1.22
+2021-09-28 09:54:59.612768 I | op-mon: updating maxMonID from -1 to 0 after committing mon "a"
+2021-09-28 09:55:00.067989 I | op-k8sutil: ROOK_CSI_RESIZER_IMAGE="k8s.gcr.io/sig-storage/csi-resizer:v1.2.0" (default)
+2021-09-28 09:55:00.216651 I | op-k8sutil: CSI_LOG_LEVEL="" (default)
+2021-09-28 09:55:01.016963 I | op-k8sutil: CSI_PROVISIONER_REPLICAS="2" (env var)
+2021-09-28 09:55:01.213762 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.105.150.196:6789"]}] data:a=10.105.150.196:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:0]
+2021-09-28 09:55:01.213802 I | op-mon: waiting for mon quorum with [a]
+2021-09-28 09:55:01.415704 I | op-k8sutil: CSI_PROVISIONER_TOLERATIONS="" (default)
+2021-09-28 09:55:01.614678 I | op-mon: mon a is not yet running
+2021-09-28 09:55:01.614721 I | op-mon: mons running: []
+2021-09-28 09:55:01.812381 I | op-k8sutil: CSI_PROVISIONER_NODE_AFFINITY="" (default)
+2021-09-28 09:55:02.012548 I | op-k8sutil: CSI_PLUGIN_TOLERATIONS="" (default)
+2021-09-28 09:55:02.213837 I | op-k8sutil: CSI_PLUGIN_NODE_AFFINITY="" (default)
+2021-09-28 09:55:02.411917 I | op-k8sutil: CSI_RBD_PLUGIN_TOLERATIONS="" (default)
+2021-09-28 09:55:02.612222 I | op-k8sutil: CSI_RBD_PLUGIN_NODE_AFFINITY="" (default)
+2021-09-28 09:55:02.812068 I | op-k8sutil: CSI_RBD_PLUGIN_RESOURCE="" (default)
+2021-09-28 09:55:03.012092 I | op-k8sutil: CSI_RBD_PROVISIONER_TOLERATIONS="" (default)
+2021-09-28 09:55:03.215505 I | op-k8sutil: CSI_RBD_PROVISIONER_NODE_AFFINITY="" (default)
+2021-09-28 09:55:03.413950 I | op-k8sutil: CSI_RBD_PROVISIONER_RESOURCE="" (default)
+2021-09-28 09:55:03.430149 I | ceph-csi: successfully started CSI Ceph RBD driver
+2021-09-28 09:55:04.289700 I | op-k8sutil: CSI_CEPHFS_PLUGIN_TOLERATIONS="" (default)
+2021-09-28 09:55:04.293735 I | op-k8sutil: CSI_CEPHFS_PLUGIN_NODE_AFFINITY="" (default)
+2021-09-28 09:55:04.298451 I | op-k8sutil: CSI_CEPHFS_PLUGIN_RESOURCE="" (default)
+2021-09-28 09:55:04.423961 I | op-k8sutil: CSI_CEPHFS_PROVISIONER_TOLERATIONS="" (default)
+2021-09-28 09:55:04.683593 I | op-k8sutil: CSI_CEPHFS_PROVISIONER_NODE_AFFINITY="" (default)
+2021-09-28 09:55:05.046278 I | op-k8sutil: CSI_CEPHFS_PROVISIONER_RESOURCE="" (default)
+2021-09-28 09:55:05.069247 I | ceph-csi: successfully started CSI CephFS driver
+2021-09-28 09:55:05.238044 I | op-k8sutil: CSI_RBD_FSGROUPPOLICY="ReadWriteOnceWithFSType" (env var)
+2021-09-28 09:55:05.275704 I | ceph-csi: CSIDriver object updated for driver "rook-ceph.rbd.csi.ceph.com"
+2021-09-28 09:55:05.416638 I | op-k8sutil: CSI_CEPHFS_FSGROUPPOLICY="None" (env var)
+2021-09-28 09:55:05.432320 I | ceph-csi: CSIDriver object updated for driver "rook-ceph.cephfs.csi.ceph.com"
+2021-09-28 09:55:15.413574 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:55:22.036616 I | op-mon: mons running: [a]
+2021-09-28 09:55:30.807359 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:55:42.488861 I | op-mon: mons running: [a]
+2021-09-28 09:55:46.212462 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:56:01.614705 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:56:02.921418 I | op-mon: mons running: [a]
+2021-09-28 09:56:16.985508 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:56:23.311457 I | op-mon: mons running: [a]
+2021-09-28 09:56:32.393421 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:56:43.700811 I | op-mon: mons running: [a]
+2021-09-28 09:56:47.782755 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:57:03.120996 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:57:04.120775 I | op-mon: mons running: [a]
+2021-09-28 09:57:18.578448 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:57:24.492583 I | op-mon: mons running: [a]
+2021-09-28 09:57:33.978769 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:57:44.885763 I | op-mon: mons running: [a]
+2021-09-28 09:57:49.406990 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:58:04.795901 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:58:05.297321 I | op-mon: mons running: [a]
+2021-09-28 09:58:20.206268 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:58:25.718018 I | op-mon: mons running: [a]
+2021-09-28 09:58:35.595989 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:58:46.095791 I | op-mon: mons running: [a]
+2021-09-28 09:58:50.981022 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:59:06.376131 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:59:06.505595 I | op-mon: mons running: [a]
+2021-09-28 09:59:22.083453 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:59:27.313683 I | op-mon: mons running: [a]
+2021-09-28 09:59:37.497186 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 09:59:47.787240 I | op-mon: mons running: [a]
+2021-09-28 09:59:52.909998 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:00:08.189200 I | op-mon: mons running: [a]
+2021-09-28 10:00:08.299807 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:00:24.119628 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:00:28.991006 I | op-mon: mons running: [a]
+2021-09-28 10:00:39.504896 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:00:49.325560 I | op-mon: mons running: [a]
+2021-09-28 10:00:54.883610 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:01:09.726071 I | op-mon: mons running: [a]
+2021-09-28 10:01:10.280062 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:01:25.689849 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:01:30.096141 I | op-mon: mons running: [a]
+2021-09-28 10:01:41.088198 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:01:50.508094 I | op-mon: mons running: [a]
+2021-09-28 10:02:01.499739 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:02:10.823794 I | op-mon: mons running: [a]
+2021-09-28 10:02:16.995710 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:02:31.218232 I | op-mon: mons running: [a]
+2021-09-28 10:02:51.614888 I | op-mon: mons running: [a]
+2021-09-28 10:02:57.901790 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:03:11.925149 I | op-mon: mons running: [a]
+2021-09-28 10:03:13.410456 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:03:32.294716 I | op-mon: mons running: [a]
+2021-09-28 10:03:52.715094 I | op-mon: mons running: [a]
+2021-09-28 10:04:13.198110 I | op-mon: mons running: [a]
+2021-09-28 10:04:33.631675 I | op-mon: mons running: [a]
+2021-09-28 10:04:35.283347 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:04:50.705027 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:04:54.041483 I | op-mon: mons running: [a]
+2021-09-28 10:05:09.499907 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". failed to reconcile cluster "rook-ceph": failed to configure local ceph cluster: failed to create cluster: failed to start ceph monitors: failed to start mon pods: failed to check mon quorum a: failed to wait for mon quorum: exceeded max retry count waiting for monitors to reach quorum
+2021-09-28 10:05:09.499959 I | op-k8sutil: Reporting Event rook-ceph:rook-ceph Warning:ReconcileFailed:failed to reconcile cluster "rook-ceph": failed to configure local ceph cluster: failed to create cluster: failed to start ceph monitors: failed to start mon pods: failed to check mon quorum a: failed to wait for mon quorum: exceeded max retry count waiting for monitors to reach quorum
+2021-09-28 10:05:09.505269 I | ceph-cluster-controller: reconciling ceph cluster in namespace "rook-ceph"
+2021-09-28 10:05:09.514422 I | op-mon: parsing mon endpoints: a=10.105.150.196:6789
+2021-09-28 10:05:09.540741 I | ceph-cluster-controller: detecting the ceph image version for image quay.io/ceph/ceph:v16.2.6...
+2021-09-28 10:05:13.983984 I | ceph-cluster-controller: detected ceph image version: "16.2.6-0 pacific"
+2021-09-28 10:05:13.984009 I | ceph-cluster-controller: validating ceph version from provided image
+2021-09-28 10:05:13.990479 I | op-mon: parsing mon endpoints: a=10.105.150.196:6789
+2021-09-28 10:05:13.994992 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:05:13.995315 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:05:29.481326 E | ceph-cluster-controller: failed to get ceph daemons versions, this typically happens during the first cluster initialization. failed to run 'ceph versions'. . timed out: exit status 1
+2021-09-28 10:05:29.481381 I | ceph-cluster-controller: cluster "rook-ceph": version "16.2.6-0 pacific" detected for image "quay.io/ceph/ceph:v16.2.6"
+2021-09-28 10:05:29.541146 I | op-mon: start running mons
+2021-09-28 10:05:29.550632 I | op-mon: parsing mon endpoints: a=10.105.150.196:6789
+2021-09-28 10:05:29.568357 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.105.150.196:6789"]}] data:a=10.105.150.196:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:0]
+2021-09-28 10:05:29.581394 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:05:29.581668 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:05:30.531068 I | op-mon: targeting the mon count 3
+2021-09-28 10:05:30.535957 I | op-config: setting "global"="mon allow pool delete"="true" option to the mon configuration database
+2021-09-28 10:05:45.994940 I | op-config: setting "global"="mon cluster log file"="" option to the mon configuration database
+2021-09-28 10:06:01.488797 I | op-config: setting "global"="mon allow pool size one"="true" option to the mon configuration database
+2021-09-28 10:06:16.991603 I | op-config: setting "global"="osd scrub auto repair"="true" option to the mon configuration database
+2021-09-28 10:06:32.477631 W | op-mon: failed to set Rook and/or user-defined Ceph config options before starting mons; will retry after starting mons. failed to apply default Ceph configurations: failed to set one or more Ceph configs: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1
+2021-09-28 10:06:32.477669 I | op-mon: creating mon b
+2021-09-28 10:06:32.519158 I | op-mon: mon "a" endpoint is [v2:10.105.150.196:3300,v1:10.105.150.196:6789]
+2021-09-28 10:06:32.533049 I | op-mon: mon "b" endpoint is [v2:10.106.133.56:3300,v1:10.106.133.56:6789]
+2021-09-28 10:06:32.552861 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.105.150.196:6789","10.106.133.56:6789"]}] data:a=10.105.150.196:6789,b=10.106.133.56:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:0]
+2021-09-28 10:06:32.683646 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:06:32.683992 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:06:33.092002 I | op-mon: 1 of 2 expected mon deployments exist. creating new deployment(s).
+2021-09-28 10:06:33.098758 I | op-mon: deployment for mon rook-ceph-mon-a already exists. updating if needed
+2021-09-28 10:06:33.111615 I | op-k8sutil: deployment "rook-ceph-mon-a" did not change, nothing to update
+2021-09-28 10:06:33.283653 I | op-mon: updating maxMonID from 0 to 1 after committing mon "b"
+2021-09-28 10:06:34.085515 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.105.150.196:6789","10.106.133.56:6789"]}] data:a=10.105.150.196:6789,b=10.106.133.56:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:1]
+2021-09-28 10:06:34.085557 I | op-mon: waiting for mon quorum with [a b]
+2021-09-28 10:06:34.489013 I | op-mon: mon b is not yet running
+2021-09-28 10:06:34.489057 I | op-mon: mons running: [a]
+2021-09-28 10:06:54.998764 I | op-mon: mons running: [a b]
+2021-09-28 10:07:15.498141 I | op-mon: mons running: [a b]
+2021-09-28 10:07:34.610292 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:07:35.937833 I | op-mon: mons running: [a b]
+2021-09-28 10:07:50.014781 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:07:56.329745 I | op-mon: mons running: [a b]
+2021-09-28 10:08:16.717691 I | op-mon: mons running: [a b]
+2021-09-28 10:08:37.036156 I | op-mon: mons running: [a b]
+2021-09-28 10:08:57.427949 I | op-mon: mons running: [a b]
+2021-09-28 10:09:17.816300 I | op-mon: mons running: [a b]
+2021-09-28 10:09:38.213129 I | op-mon: mons running: [a b]
+2021-09-28 10:09:58.618082 I | op-mon: mons running: [a b]
+2021-09-28 10:10:18.932503 I | op-mon: mons running: [a b]
+2021-09-28 10:10:39.321562 I | op-mon: mons running: [a b]
+2021-09-28 10:10:59.720132 I | op-mon: mons running: [a b]
+2021-09-28 10:11:20.121917 I | op-mon: mons running: [a b]
+2021-09-28 10:11:40.627946 I | op-mon: mons running: [a b]
+2021-09-28 10:12:01.025537 I | op-mon: mons running: [a b]
+2021-09-28 10:12:21.408156 I | op-mon: mons running: [a b]
+2021-09-28 10:12:41.796944 I | op-mon: mons running: [a b]
+2021-09-28 10:13:02.298352 I | op-mon: mons running: [a b]
+2021-09-28 10:13:17.988605 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:13:23.009058 I | op-mon: mons running: [a b]
+2021-09-28 10:13:33.413564 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:13:43.405135 I | op-mon: mons running: [a b]
+2021-09-28 10:14:03.791570 I | op-mon: mons running: [a b]
+2021-09-28 10:14:24.204290 I | op-mon: mons running: [a b]
+2021-09-28 10:14:44.531821 I | op-mon: mons running: [a b]
+2021-09-28 10:15:04.927841 I | op-mon: mons running: [a b]
+2021-09-28 10:15:25.241411 I | op-mon: mons running: [a b]
+2021-09-28 10:15:45.630598 I | op-mon: mons running: [a b]
+2021-09-28 10:16:06.028450 I | op-mon: mons running: [a b]
+2021-09-28 10:16:26.425588 I | op-mon: mons running: [a b]
+2021-09-28 10:16:42.653961 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". failed to reconcile cluster "rook-ceph": failed to configure local ceph cluster: failed to create cluster: failed to start ceph monitors: failed to start mon pods: failed to check mon quorum b: failed to wait for mon quorum: exceeded max retry count waiting for monitors to reach quorum
+2021-09-28 10:16:42.654042 I | op-k8sutil: Reporting Event rook-ceph:rook-ceph Warning:ReconcileFailed:failed to reconcile cluster "rook-ceph": failed to configure local ceph cluster: failed to create cluster: failed to start ceph monitors: failed to start mon pods: failed to check mon quorum b: failed to wait for mon quorum: exceeded max retry count waiting for monitors to reach quorum
+2021-09-28 10:16:42.664845 I | ceph-cluster-controller: reconciling ceph cluster in namespace "rook-ceph"
+2021-09-28 10:16:42.674199 I | op-mon: parsing mon endpoints: a=10.105.150.196:6789,b=10.106.133.56:6789
+2021-09-28 10:16:42.695179 I | ceph-cluster-controller: detecting the ceph image version for image quay.io/ceph/ceph:v16.2.6...
+2021-09-28 10:16:46.893588 I | ceph-cluster-controller: detected ceph image version: "16.2.6-0 pacific"
+2021-09-28 10:16:46.893629 I | ceph-cluster-controller: validating ceph version from provided image
+2021-09-28 10:16:46.903774 I | op-mon: parsing mon endpoints: a=10.105.150.196:6789,b=10.106.133.56:6789
+2021-09-28 10:16:46.907806 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:16:46.908196 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:17:02.324695 E | ceph-cluster-controller: failed to get ceph daemons versions, this typically happens during the first cluster initialization. failed to run 'ceph versions'. . timed out: exit status 1
+2021-09-28 10:17:02.324741 I | ceph-cluster-controller: cluster "rook-ceph": version "16.2.6-0 pacific" detected for image "quay.io/ceph/ceph:v16.2.6"
+2021-09-28 10:17:02.382431 I | op-mon: start running mons
+2021-09-28 10:17:02.392414 I | op-mon: parsing mon endpoints: a=10.105.150.196:6789,b=10.106.133.56:6789
+2021-09-28 10:17:02.409694 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.105.150.196:6789","10.106.133.56:6789"]}] data:a=10.105.150.196:6789,b=10.106.133.56:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:1]
+2021-09-28 10:17:02.428802 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:17:02.429119 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:17:03.369957 I | op-mon: targeting the mon count 3
+2021-09-28 10:17:03.375397 I | op-config: setting "global"="mon allow pool delete"="true" option to the mon configuration database
+2021-09-28 10:17:18.813917 I | op-config: setting "global"="mon cluster log file"="" option to the mon configuration database
+2021-09-28 10:17:34.221781 I | op-config: setting "global"="mon allow pool size one"="true" option to the mon configuration database
+2021-09-28 10:17:49.618884 I | op-config: setting "global"="osd scrub auto repair"="true" option to the mon configuration database
+2021-09-28 10:18:05.086432 W | op-mon: failed to set Rook and/or user-defined Ceph config options before starting mons; will retry after starting mons. failed to apply default Ceph configurations: failed to set one or more Ceph configs: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1
+2021-09-28 10:18:05.086481 I | op-mon: creating mon c
+2021-09-28 10:18:05.127761 I | op-mon: mon "a" endpoint is [v2:10.105.150.196:3300,v1:10.105.150.196:6789]
+2021-09-28 10:18:05.159779 I | op-mon: mon "b" endpoint is [v2:10.106.133.56:3300,v1:10.106.133.56:6789]
+2021-09-28 10:18:05.171486 I | op-mon: mon "c" endpoint is [v2:10.96.201.253:3300,v1:10.96.201.253:6789]
+2021-09-28 10:18:05.494365 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.96.201.253:6789","10.105.150.196:6789","10.106.133.56:6789"]}] data:a=10.105.150.196:6789,b=10.106.133.56:6789,c=10.96.201.253:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:1]
+2021-09-28 10:18:06.092235 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:18:06.092546 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:18:06.504067 I | op-mon: 2 of 3 expected mon deployments exist. creating new deployment(s).
+2021-09-28 10:18:06.511210 I | op-mon: deployment for mon rook-ceph-mon-a already exists. updating if needed
+2021-09-28 10:18:06.521932 I | op-k8sutil: deployment "rook-ceph-mon-a" did not change, nothing to update
+2021-09-28 10:18:06.531014 I | op-mon: deployment for mon rook-ceph-mon-b already exists. updating if needed
+2021-09-28 10:18:06.543881 I | op-k8sutil: deployment "rook-ceph-mon-b" did not change, nothing to update
+2021-09-28 10:18:06.691707 I | op-mon: updating maxMonID from 1 to 2 after committing mon "c"
+2021-09-28 10:18:07.492828 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.105.150.196:6789","10.106.133.56:6789","10.96.201.253:6789"]}] data:a=10.105.150.196:6789,b=10.106.133.56:6789,c=10.96.201.253:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:2]
+2021-09-28 10:18:07.492870 I | op-mon: waiting for mon quorum with [a b c]
+2021-09-28 10:18:08.097373 I | op-mon: mon c is not yet running
+2021-09-28 10:18:08.097424 I | op-mon: mons running: [a b]
+2021-09-28 10:18:28.611097 I | op-mon: mon c is not yet running
+2021-09-28 10:18:28.611182 I | op-mon: mons running: [a b]
+2021-09-28 10:18:49.121218 I | op-mon: mon c is not yet running
+2021-09-28 10:18:49.121257 I | op-mon: mons running: [a b]
+2021-09-28 10:19:09.512495 I | op-mon: mon c is not yet running
+2021-09-28 10:19:09.512548 I | op-mon: mons running: [a b]
+2021-09-28 10:19:30.011066 I | op-mon: mon c is not yet running
+2021-09-28 10:19:30.011106 I | op-mon: mons running: [a b]
+2021-09-28 10:19:50.441485 I | op-mon: mon c is not yet running
+2021-09-28 10:19:50.441529 I | op-mon: mons running: [a b]
+2021-09-28 10:20:10.822759 I | op-mon: mon c is not yet running
+2021-09-28 10:20:10.822796 I | op-mon: mons running: [a b]
+2021-09-28 10:20:31.213615 I | op-mon: mon c is not yet running
+2021-09-28 10:20:31.213657 I | op-mon: mons running: [a b]
+2021-09-28 10:20:51.625240 I | op-mon: mon c is not yet running
+2021-09-28 10:20:51.625286 I | op-mon: mons running: [a b]
+2021-09-28 10:21:12.029327 I | op-mon: mon c is not yet running
+2021-09-28 10:21:12.029374 I | op-mon: mons running: [a b]
+2021-09-28 10:21:32.437779 I | op-mon: mon c is not yet running
+2021-09-28 10:21:32.437827 I | op-mon: mons running: [a b]
+2021-09-28 10:21:52.944321 I | op-mon: mon c is not yet running
+2021-09-28 10:21:52.944366 I | op-mon: mons running: [a b]
+2021-09-28 10:22:13.512054 I | op-mon: mon c is not yet running
+2021-09-28 10:22:13.512095 I | op-mon: mons running: [a b]
+2021-09-28 10:22:33.935425 I | op-mon: mon c is not yet running
+2021-09-28 10:22:33.935468 I | op-mon: mons running: [a b]
+2021-09-28 10:22:54.403139 I | op-mon: mon c is not yet running
+2021-09-28 10:22:54.403212 I | op-mon: mons running: [a b]
+2021-09-28 10:23:14.914226 I | op-mon: mon c is not yet running
+2021-09-28 10:23:14.914265 I | op-mon: mons running: [a b]
+2021-09-28 10:23:35.939321 I | op-mon: mon c is not yet running
+2021-09-28 10:23:35.939361 I | op-mon: mons running: [a b]
+2021-09-28 10:23:56.349609 I | op-mon: mon c is not yet running
+2021-09-28 10:23:56.349651 I | op-mon: mons running: [a b]
+2021-09-28 10:24:16.743345 I | op-mon: mon c is not yet running
+2021-09-28 10:24:16.743380 I | op-mon: mons running: [a b]
+2021-09-28 10:24:28.772173 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:24:37.243194 I | op-mon: mon c is not yet running
+2021-09-28 10:24:37.243273 I | op-mon: mons running: [a b]
+2021-09-28 10:24:44.216361 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:24:57.864151 I | op-mon: mon c is not yet running
+2021-09-28 10:24:57.864219 I | op-mon: mons running: [a b]
+2021-09-28 10:25:18.444859 I | op-mon: mon c is not yet running
+2021-09-28 10:25:18.444904 I | op-mon: mons running: [a b]
+2021-09-28 10:25:39.950221 I | op-mon: mon c is not yet running
+2021-09-28 10:25:39.950271 I | op-mon: mons running: [a b]
+2021-09-28 10:26:00.612825 I | op-mon: mons running: [a b c]
+2021-09-28 10:26:21.130053 I | op-mon: mons running: [a b c]
+2021-09-28 10:26:41.621098 I | op-mon: mons running: [a b c]
+2021-09-28 10:27:02.012353 I | op-mon: mons running: [a b c]
+2021-09-28 10:27:22.539739 I | op-mon: mons running: [a b c]
+2021-09-28 10:27:43.010813 I | op-mon: mons running: [a b c]
+2021-09-28 10:28:03.609863 I | op-mon: mons running: [a b c]
+2021-09-28 10:28:18.943900 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". failed to reconcile cluster "rook-ceph": failed to configure local ceph cluster: failed to create cluster: failed to start ceph monitors: failed to start mon pods: failed to check mon quorum c: failed to wait for mon quorum: exceeded max retry count waiting for monitors to reach quorum
+2021-09-28 10:28:18.943949 I | op-k8sutil: Reporting Event rook-ceph:rook-ceph Warning:ReconcileFailed:failed to reconcile cluster "rook-ceph": failed to configure local ceph cluster: failed to create cluster: failed to start ceph monitors: failed to start mon pods: failed to check mon quorum c: failed to wait for mon quorum: exceeded max retry count waiting for monitors to reach quorum
+2021-09-28 10:28:18.965361 I | ceph-cluster-controller: reconciling ceph cluster in namespace "rook-ceph"
+2021-09-28 10:28:18.973853 I | op-mon: parsing mon endpoints: a=10.105.150.196:6789,b=10.106.133.56:6789,c=10.96.201.253:6789
+2021-09-28 10:28:18.996255 I | ceph-cluster-controller: detecting the ceph image version for image quay.io/ceph/ceph:v16.2.6...
+2021-09-28 10:28:25.746411 I | ceph-cluster-controller: detected ceph image version: "16.2.6-0 pacific"
+2021-09-28 10:28:25.746440 I | ceph-cluster-controller: validating ceph version from provided image
+2021-09-28 10:28:25.759232 I | op-mon: parsing mon endpoints: a=10.105.150.196:6789,b=10.106.133.56:6789,c=10.96.201.253:6789
+2021-09-28 10:28:25.764005 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:28:25.764320 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:28:41.191516 E | ceph-cluster-controller: failed to get ceph daemons versions, this typically happens during the first cluster initialization. failed to run 'ceph versions'. . timed out: exit status 1
+2021-09-28 10:28:41.191565 I | ceph-cluster-controller: cluster "rook-ceph": version "16.2.6-0 pacific" detected for image "quay.io/ceph/ceph:v16.2.6"
+2021-09-28 10:28:41.243627 I | op-mon: start running mons
+2021-09-28 10:28:41.251550 I | op-mon: parsing mon endpoints: a=10.105.150.196:6789,b=10.106.133.56:6789,c=10.96.201.253:6789
+2021-09-28 10:28:41.265155 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.105.150.196:6789","10.106.133.56:6789","10.96.201.253:6789"]}] data:a=10.105.150.196:6789,b=10.106.133.56:6789,c=10.96.201.253:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:2]
+2021-09-28 10:28:41.279217 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:28:41.279528 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:28:42.231736 I | op-mon: targeting the mon count 3
+2021-09-28 10:28:42.239075 I | op-config: setting "global"="mon allow pool delete"="true" option to the mon configuration database
+2021-09-28 10:28:57.794347 I | op-config: setting "global"="mon cluster log file"="" option to the mon configuration database
+2021-09-28 10:29:13.221316 I | op-config: setting "global"="mon allow pool size one"="true" option to the mon configuration database
+2021-09-28 10:29:28.602523 I | op-config: setting "global"="osd scrub auto repair"="true" option to the mon configuration database
+2021-09-28 10:29:44.101762 W | op-mon: failed to set Rook and/or user-defined Ceph config options before starting mons; will retry after starting mons. failed to apply default Ceph configurations: failed to set one or more Ceph configs: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1
+2021-09-28 10:29:44.101800 I | op-mon: checking for basic quorum with existing mons
+2021-09-28 10:29:44.154911 I | op-mon: mon "a" endpoint is [v2:10.105.150.196:3300,v1:10.105.150.196:6789]
+2021-09-28 10:29:44.191006 I | op-mon: mon "b" endpoint is [v2:10.106.133.56:3300,v1:10.106.133.56:6789]
+2021-09-28 10:29:44.511534 I | op-mon: mon "c" endpoint is [v2:10.96.201.253:3300,v1:10.96.201.253:6789]
+2021-09-28 10:29:45.111464 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.96.201.253:6789","10.105.150.196:6789","10.106.133.56:6789"]}] data:b=10.106.133.56:6789,c=10.96.201.253:6789,a=10.105.150.196:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:2]
+2021-09-28 10:29:45.707646 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:29:45.707983 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:29:46.126975 I | op-mon: deployment for mon rook-ceph-mon-a already exists. updating if needed
+2021-09-28 10:29:46.138183 I | op-k8sutil: deployment "rook-ceph-mon-a" did not change, nothing to update
+2021-09-28 10:29:46.138244 I | op-mon: waiting for mon quorum with [a b c]
+2021-09-28 10:29:46.713508 I | op-mon: mons running: [a b c]
+2021-09-28 10:30:07.124413 I | op-mon: mons running: [a b c]
+2021-09-28 10:30:27.631495 I | op-mon: mons running: [a b c]
+2021-09-28 10:30:50.914953 I | op-mon: mons running: [a b c]
+2021-09-28 10:31:11.346556 I | op-mon: mons running: [a b c]
+2021-09-28 10:31:31.747583 I | op-mon: mons running: [a b c]
+2021-09-28 10:31:52.225051 I | op-mon: mons running: [a b c]
+2021-09-28 10:32:12.718486 I | op-mon: mons running: [a b c]
+2021-09-28 10:32:33.220394 I | op-mon: mons running: [a b c]
+2021-09-28 10:32:53.643642 I | op-mon: mons running: [a b c]
+2021-09-28 10:33:14.112533 I | op-mon: mons running: [a b c]
+2021-09-28 10:33:34.602878 I | op-mon: mons running: [a b c]
+2021-09-28 10:33:55.009572 I | op-mon: mons running: [a b c]
+2021-09-28 10:34:15.413013 I | op-mon: mons running: [a b c]
+2021-09-28 10:34:35.755058 I | op-mon: mons running: [a b c]
+2021-09-28 10:34:56.200477 I | op-mon: mons running: [a b c]
+2021-09-28 10:35:16.626524 I | op-mon: mons running: [a b c]
+2021-09-28 10:35:37.038928 I | op-mon: mons running: [a b c]
+2021-09-28 10:35:57.439797 I | op-mon: mons running: [a b c]
+2021-09-28 10:36:17.911345 I | op-mon: mons running: [a b c]
+2021-09-28 10:36:38.303302 I | op-mon: mons running: [a b c]
+2021-09-28 10:36:58.715994 I | op-mon: mons running: [a b c]
+2021-09-28 10:37:19.141349 I | op-mon: mons running: [a b c]
+2021-09-28 10:37:39.537785 I | op-mon: mons running: [a b c]
+2021-09-28 10:37:59.933316 I | op-mon: mons running: [a b c]
+2021-09-28 10:38:20.337607 I | op-mon: mons running: [a b c]
+2021-09-28 10:38:40.712083 I | op-mon: mons running: [a b c]
+2021-09-28 10:39:01.115205 I | op-mon: mons running: [a b c]
+2021-09-28 10:39:21.528274 I | op-mon: mons running: [a b c]
+2021-09-28 10:39:41.941048 I | op-mon: mons running: [a b c]
+2021-09-28 10:39:57.314585 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". failed to reconcile cluster "rook-ceph": failed to configure local ceph cluster: failed to create cluster: failed to start ceph monitors: failed to start mon pods: failed to check mon quorum a: failed to wait for mon quorum: exceeded max retry count waiting for monitors to reach quorum
+2021-09-28 10:39:57.314638 I | op-k8sutil: Reporting Event rook-ceph:rook-ceph Warning:ReconcileFailed:failed to reconcile cluster "rook-ceph": failed to configure local ceph cluster: failed to create cluster: failed to start ceph monitors: failed to start mon pods: failed to check mon quorum a: failed to wait for mon quorum: exceeded max retry count waiting for monitors to reach quorum
+2021-09-28 10:39:57.355367 I | ceph-cluster-controller: reconciling ceph cluster in namespace "rook-ceph"
+2021-09-28 10:39:57.367464 I | op-mon: parsing mon endpoints: b=10.106.133.56:6789,c=10.96.201.253:6789,a=10.105.150.196:6789
+2021-09-28 10:39:57.397095 I | ceph-cluster-controller: detecting the ceph image version for image quay.io/ceph/ceph:v16.2.6...
+2021-09-28 10:40:04.621455 I | ceph-cluster-controller: detected ceph image version: "16.2.6-0 pacific"
+2021-09-28 10:40:04.621488 I | ceph-cluster-controller: validating ceph version from provided image
+2021-09-28 10:40:04.632364 I | op-mon: parsing mon endpoints: b=10.106.133.56:6789,c=10.96.201.253:6789,a=10.105.150.196:6789
+2021-09-28 10:40:04.638771 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:40:04.639081 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:40:20.019715 E | ceph-cluster-controller: failed to get ceph daemons versions, this typically happens during the first cluster initialization. failed to run 'ceph versions'. . timed out: exit status 1
+2021-09-28 10:40:20.019750 I | ceph-cluster-controller: cluster "rook-ceph": version "16.2.6-0 pacific" detected for image "quay.io/ceph/ceph:v16.2.6"
+2021-09-28 10:40:20.074116 I | op-mon: start running mons
+2021-09-28 10:40:20.080869 I | op-mon: parsing mon endpoints: b=10.106.133.56:6789,c=10.96.201.253:6789,a=10.105.150.196:6789
+2021-09-28 10:40:20.096396 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.106.133.56:6789","10.96.201.253:6789","10.105.150.196:6789"]}] data:c=10.96.201.253:6789,a=10.105.150.196:6789,b=10.106.133.56:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:2]
+2021-09-28 10:40:20.108933 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:40:20.109377 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:40:21.065760 I | op-mon: targeting the mon count 3
+2021-09-28 10:40:21.072381 I | op-config: setting "global"="mon allow pool delete"="true" option to the mon configuration database
+2021-09-28 10:40:36.507534 I | op-config: setting "global"="mon cluster log file"="" option to the mon configuration database
+2021-09-28 10:40:51.876923 I | op-config: setting "global"="mon allow pool size one"="true" option to the mon configuration database
+2021-09-28 10:41:07.381537 I | op-config: setting "global"="osd scrub auto repair"="true" option to the mon configuration database
+2021-09-28 10:41:22.891691 W | op-mon: failed to set Rook and/or user-defined Ceph config options before starting mons; will retry after starting mons. failed to apply default Ceph configurations: failed to set one or more Ceph configs: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1: failed to set ceph config in the centralized mon configuration database; you may need to use the rook-config-override ConfigMap. output: . timed out: exit status 1
+2021-09-28 10:41:22.891731 I | op-mon: checking for basic quorum with existing mons
+2021-09-28 10:41:22.929059 I | op-mon: mon "b" endpoint is [v2:10.106.133.56:3300,v1:10.106.133.56:6789]
+2021-09-28 10:41:22.968709 I | op-mon: mon "c" endpoint is [v2:10.96.201.253:3300,v1:10.96.201.253:6789]
+2021-09-28 10:41:23.301998 I | op-mon: mon "a" endpoint is [v2:10.105.150.196:3300,v1:10.105.150.196:6789]
+2021-09-28 10:41:23.897780 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.106.133.56:6789","10.96.201.253:6789","10.105.150.196:6789"]}] data:b=10.106.133.56:6789,c=10.96.201.253:6789,a=10.105.150.196:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:2]
+2021-09-28 10:41:24.220248 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:41:24.496579 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:41:24.496876 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:41:24.913377 I | op-mon: deployment for mon rook-ceph-mon-b already exists. updating if needed
+2021-09-28 10:41:24.927555 I | op-k8sutil: deployment "rook-ceph-mon-b" did not change, nothing to update
+2021-09-28 10:41:24.927615 I | op-mon: waiting for mon quorum with [b c a]
+2021-09-28 10:41:25.500847 I | op-mon: mons running: [b c a]
+2021-09-28 10:41:39.603256 E | clusterdisruption-controller: failed to check cluster health: failed to get status. . timed out: exit status 1
+2021-09-28 10:41:45.983359 I | op-mon: mons running: [b c a]
+2021-09-28 10:42:06.421622 I | op-mon: mons running: [b c a]
+2021-09-28 10:42:26.743943 I | op-mon: mons running: [b c a]
+2021-09-28 10:42:47.233727 I | op-mon: mons running: [b c a]
+2021-09-28 10:43:07.717412 I | op-mon: mons running: [b c a]
+2021-09-28 10:43:28.122662 I | op-mon: mons running: [b c a]
+2021-09-28 10:43:48.551758 I | op-mon: mons running: [b c a]
+2021-09-28 10:44:08.941615 I | op-mon: mons running: [b c a]
+2021-09-28 10:44:29.420097 I | op-mon: mons running: [b c a]
+2021-09-28 10:44:49.926724 I | op-mon: mons running: [b c a]
+2021-09-28 10:45:10.348456 I | op-mon: mons running: [b c a]
+2021-09-28 10:45:30.814404 I | op-mon: mons running: [b c a]
+2021-09-28 10:45:51.305422 I | op-mon: mons running: [b c a]
+2021-09-28 10:46:11.723720 I | op-mon: mons running: [b c a]
+2021-09-28 10:46:32.216093 I | op-mon: mons running: [b c a]
+2021-09-28 10:46:52.643676 I | op-mon: mons running: [b c a]
+2021-09-28 10:47:13.136813 I | op-mon: mons running: [b c a]
+2021-09-28 10:47:33.602029 I | op-mon: mons running: [b c a]
+2021-09-28 10:47:54.110574 I | op-mon: mons running: [b c a]
+2021-09-28 10:48:14.604507 I | op-mon: mons running: [b c a]
+2021-09-28 10:48:35.068861 I | op-mon: mons running: [b c a]
+2021-09-28 10:48:55.498402 I | op-mon: mons running: [b c a]
+2021-09-28 10:49:15.939951 I | op-mon: mons running: [b c a]
+2021-09-28 10:49:36.426523 I | op-mon: mons running: [b c a]
+2021-09-28 10:49:56.912904 I | op-mon: mons running: [b c a]
+2021-09-28 10:50:17.325623 I | op-mon: mons running: [b c a]
+2021-09-28 10:50:37.821955 I | op-mon: mons running: [b c a]
+2021-09-28 10:50:58.317052 I | op-mon: mons running: [b c a]
+2021-09-28 10:51:18.713756 I | op-mon: mons running: [b c a]
+2021-09-28 10:51:34.108740 E | ceph-cluster-controller: failed to reconcile CephCluster "rook-ceph/rook-ceph". failed to reconcile cluster "rook-ceph": failed to configure local ceph cluster: failed to create cluster: failed to start ceph monitors: failed to start mon pods: failed to check mon quorum b: failed to wait for mon quorum: exceeded max retry count waiting for monitors to reach quorum
+2021-09-28 10:51:34.108779 I | op-k8sutil: Reporting Event rook-ceph:rook-ceph Warning:ReconcileFailed:failed to reconcile cluster "rook-ceph": failed to configure local ceph cluster: failed to create cluster: failed to start ceph monitors: failed to start mon pods: failed to check mon quorum b: failed to wait for mon quorum: exceeded max retry count waiting for monitors to reach quorum
+2021-09-28 10:51:34.189590 I | ceph-cluster-controller: reconciling ceph cluster in namespace "rook-ceph"
+2021-09-28 10:51:34.199204 I | op-mon: parsing mon endpoints: b=10.106.133.56:6789,c=10.96.201.253:6789,a=10.105.150.196:6789
+2021-09-28 10:51:34.226534 I | ceph-cluster-controller: detecting the ceph image version for image quay.io/ceph/ceph:v16.2.6...
+2021-09-28 10:51:41.962402 I | ceph-cluster-controller: detected ceph image version: "16.2.6-0 pacific"
+2021-09-28 10:51:41.962443 I | ceph-cluster-controller: validating ceph version from provided image
+2021-09-28 10:51:41.971394 I | op-mon: parsing mon endpoints: b=10.106.133.56:6789,c=10.96.201.253:6789,a=10.105.150.196:6789
+2021-09-28 10:51:41.975689 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:51:41.976017 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:51:49.627512 I | op-k8sutil: Reporting Event rook-ceph:ceph-objectstore Normal:ReconcileSucceeded:successfully configured CephObjectStore "rook-ceph/ceph-objectstore"
+2021-09-28 10:51:57.474525 E | ceph-cluster-controller: failed to get ceph daemons versions, this typically happens during the first cluster initialization. failed to run 'ceph versions'. . timed out: exit status 1
+2021-09-28 10:51:57.474572 I | ceph-cluster-controller: cluster "rook-ceph": version "16.2.6-0 pacific" detected for image "quay.io/ceph/ceph:v16.2.6"
+2021-09-28 10:51:57.529005 I | op-mon: start running mons
+2021-09-28 10:51:57.579800 I | op-mon: parsing mon endpoints: b=10.106.133.56:6789,c=10.96.201.253:6789,a=10.105.150.196:6789
+2021-09-28 10:51:57.594230 I | op-mon: saved mon endpoints to config map map[csi-cluster-config-json:[{"clusterID":"rook-ceph","monitors":["10.106.133.56:6789","10.96.201.253:6789","10.105.150.196:6789"]}] data:c=10.96.201.253:6789,a=10.105.150.196:6789,b=10.106.133.56:6789 mapping:{"node":{"a":{"Name":"node1","Hostname":"node1","Address":"10.7.24.31"},"b":{"Name":"node3","Hostname":"node3","Address":"10.7.24.33"},"c":{"Name":"node2","Hostname":"node2","Address":"10.7.24.32"}}} maxMonId:2]
+2021-09-28 10:51:57.606789 I | cephclient: writing config file /var/lib/rook/rook-ceph/rook-ceph.config
+2021-09-28 10:51:57.607148 I | cephclient: generated admin config in /var/lib/rook/rook-ceph
+2021-09-28 10:51:58.517723 I | op-mon: targeting the mon count 3
+2021-09-28 10:51:58.523763 I | op-config: setting "global"="mon allow pool delete"="true" option to the mon configuration database

@@ -1,0 +1,40 @@
+apiVersion: ceph.rook.io/v1
+kind: CephCluster
+metadata:
+  name: rook-ceph
+  namespace: rook-ceph
+spec:
+  cephVersion:
+    image: ceph/ceph:v14.2.6
+    allowUnsupported: false
+  dataDirHostPath: /var/lib/rook
+  skipUpgradeChecks: false
+  continueUpgradeAfterChecksEvenIfNotHealthy: false
+  mon:
+    #这里是最重要的，mon是存储集群的监控器，我们K8S里面有多少主机这里的就必须使用多少个mon
+    count: 2
+    allowMultiplePerNode: false
+  dashboard:
+   #这里是是否启用监控面板，基本上都会使用 
+    enabled: true
+    #监控面板是否使用SSL，如果是使用8443端口，不是则使用7000端口，由于这是运维人员使用建议不启用
+    ssl: false
+  monitoring:
+    enabled: false
+    rulesNamespace: rook-ceph
+  network:
+    hostNetwork: false
+  crashCollector:
+    disable: false
+  annotations:
+  resources:
+  removeOSDsIfOutAndSafeToRemove: false
+  storage:
+    useAllNodes: true
+    useAllDevices: true
+    config:
+  disruptionManagement:
+    managePodBudgets: false
+    osdMaintenanceTimeout: 30
+    manageMachineDisruptionBudgets: false
+    machineDisruptionBudgetNamespace: openshift-machine-api

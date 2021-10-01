@@ -16,6 +16,8 @@ fi
 cat <<EOF >> /etc/hosts
 10.7.24.21 master
 10.7.24.31 node1
+10.7.24.32 node2
+10.7.24.33 node3
 EOF
 
 
@@ -91,9 +93,9 @@ source ~/.bashrc
 
 
 # # install nerdctl
-# VERSION=0.11.0
-# wget -c https://github.com/containerd/nerdctl/releases/download/v${VERSION}/nerdctl-full-${VERSION}-linux-amd64.tar.gz
-# tar xvf nerdctl-full-${VERSION}-linux-amd64.tar.gz -C /usr/local/
+VERSION=0.11.0
+wget -c https://github.com/containerd/nerdctl/releases/download/v${VERSION}/nerdctl-full-${VERSION}-linux-amd64.tar.gz
+tar xvf nerdctl-full-${VERSION}-linux-amd64.tar.gz -C /usr/local/
 
 
 # start containerd
@@ -121,9 +123,19 @@ EOF
 
 # install k8s tools
 yum makecache fast -y
-yum install -y kubelet-1.22.1 kubeadm-1.22.1 kubectl-1.22.1 --disableexcludes=kubernetes
-echo `kubeadm version`
+yum install -y kubelet-1.22.1 --disableexcludes=kubernetes
 
 
 # start kubelet
 systemctl enable --now kubelet
+
+
+# retag image
+ctr -n k8s.io i pull docker.io/coredns/coredns:1.8.4
+ctr -n k8s.io i tag docker.io/coredns/coredns:1.8.4 registry.aliyuncs.com/k8sxio/coredns:v1.8.4
+ctr -n k8s.io i pull registry.aliyuncs.com/k8sxio/pause:3.5
+ctr -n k8s.io i tag registry.aliyuncs.com/k8sxio/pause:3.5 k8s.gcr.io/pause:3.5
+
+
+# load image
+kubeadm config images pull --config kubeadm.yaml || true
