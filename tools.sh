@@ -24,3 +24,18 @@ echo "=========kind version========="
 kind version
 echo "=============================="
 
+# install nerdctl
+VERSION=0.11.0
+wget -c https://github.com/containerd/nerdctl/releases/download/v${VERSION}/nerdctl-full-${VERSION}-linux-amd64.tar.gz
+tar xvf nerdctl-full-${VERSION}-linux-amd64.tar.gz -C /usr/local/
+
+# install etcd
+go get go.etcd.io/etcd/etcdctl/v3
+# go get github.com/coreos/etcd/etcdctl
+# cd <go-dir>/src/github.com/coreos/etcd/etcdctl
+# go build .
+# ls | grep etcdctl         check etcdctl is grenerated
+# sudo mv etcdctl /usr/local/bin
+
+etcdctl --help
+

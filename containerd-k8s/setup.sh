@@ -2,9 +2,6 @@
 
 set -o errexit
 
-# yum install
-yum install -y wget
-
 # set hosts
 if [ -f /etc/hosts.bak ]
 then
@@ -14,10 +11,9 @@ else
 fi
 
 cat <<EOF >> /etc/hosts
-10.7.24.21 master
-10.7.24.31 node1
-10.7.24.32 node2
-10.7.24.33 node3
+10.6.24.10 master
+10.6.24.11 node1
+10.6.24.12 node2
 EOF
 
 
@@ -78,10 +74,10 @@ sysctl -p /etc/sysctl.d/k8s.conf
 # install containerd
 if [ -f cri-containerd-cni-1.5.5-linux-amd64.tar.gz ]
 then
-    echo "already exists"
+    echo "containerd already exists"
 else
-	echo "downloading..."
-	wget https://download.fastgit.org/containerd/containerd/releases/download/v1.5.5/cri-containerd-cni-1.5.5-linux-amd64.tar.gz
+	echo "downloading containerd..."
+	wget https://github.com/containerd/containerd/releases/download/v1.5.5/cri-containerd-cni-1.5.5-linux-amd64.tar.gz
 fi
 # rm -rf cri-containerd-cni-1.5.5-linux-amd64.tar.gz
 # wget https://download.fastgit.org/containerd/containerd/releases/download/v1.5.5/cri-containerd-cni-1.5.5-linux-amd64.tar.gz
@@ -94,7 +90,13 @@ source ~/.bashrc
 
 # # install nerdctl
 VERSION=0.11.0
-wget -c https://github.com/containerd/nerdctl/releases/download/v${VERSION}/nerdctl-full-${VERSION}-linux-amd64.tar.gz
+if [ -f nerdctl-full-${VERSION}-linux-amd64.tar.gz ]
+then
+    echo "nerdctl already exists"
+else
+	echo "downloading nerdctl..."
+	wget -c https://github.com/containerd/nerdctl/releases/download/v${VERSION}/nerdctl-full-${VERSION}-linux-amd64.tar.gz
+fi
 tar xvf nerdctl-full-${VERSION}-linux-amd64.tar.gz -C /usr/local/
 
 
@@ -106,19 +108,6 @@ cp ./containerd-config.toml /etc/containerd/config.toml
 systemctl daemon-reload
 systemctl enable containerd --now
 echo `crictl version`
-
-
-# change repo
-cat <<EOF > /etc/yum.repos.d/kubernetes.repo
-[kubernetes]
-name=Kubernetes
-baseurl=http://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
-enabled=1
-gpgcheck=0
-repo_gpgcheck=0
-gpgkey=http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
-        http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
-EOF
 
 
 # install k8s tools
