@@ -1,0 +1,23 @@
+apiVersion: kubescheduler.config.k8s.io/v1
+kind: KubeSchedulerConfiguration
+leaderElection:
+  leaderElect: false
+clientConnection:
+  kubeconfig: /etc/kubernetes/scheduler.conf
+profiles:
+  - plugins:
+      filter:
+        disabled:
+          - name: "*"
+      preScore:
+        disabled:
+        - name: "*"
+        enabled:
+        - name: gputopologyaware
+          weight: 1
+      score:
+        disabled:
+        - name: "*"
+        enabled:
+        - name: gputopologyaware
+          weight: 1
